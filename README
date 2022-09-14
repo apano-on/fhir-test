@@ -7,3 +7,5 @@ docker-compose up
 This command starts and initializes the database. Once the database is ready, it launches the SPARQL endpoint from Ontop at http://localhost:8080 .
 
 For this tutorial, we assume that the ports 7777 (used for database) and 8080 (used by Ontop) are free. If you need to use different ports, please edit the file .env.
+
+In order to switch between various ontologies modify the docker-compose.yml file.
