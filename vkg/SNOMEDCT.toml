@@ -1,0 +1,16 @@
+title="FHIR test"
+
+[defaultTab]
+query="""
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX fhir: <http://hl7.org/fhir/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX w5: <http://hl7.org/fhir/w5#>
+SELECT * WHERE {
+    ?x a fhir:Patient .
+    ?x :covid ?code .
+	?code rdfs:subClassOf ?v
+}
+LIMIT 100
+"""
