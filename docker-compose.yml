@@ -18,6 +18,8 @@ services:
     restart: unless-stopped
     environment:
       ONTOP_ONTOLOGY_FILE: /opt/ontop/input/SNOMEDCT.owl
+      # Ontology below contains more meaningful disease information
+      # ONTOP_ONTOLOGY_FILE: /opt/ontop/input/ado.owl
       ONTOP_XML_CATALOG_FILE: /opt/ontop/input/catalog-v001.xml
       ONTOP_MAPPING_FILE: /opt/ontop/input/SNOMEDCT.obda
       ONTOP_PROPERTIES_FILE: /opt/ontop/input/SNOMEDCT.properties

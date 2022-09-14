@@ -1,4 +1,4 @@
-title="FHIR test"
+title="SCTO ontology query"
 
 [defaultTab]
 query="""
@@ -7,10 +7,37 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX fhir: <http://hl7.org/fhir/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX w5: <http://hl7.org/fhir/w5#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX SCTO: <https://bioportal.bioontology.org/ontologies/SCTO#>
+
+
 SELECT * WHERE {
-    ?x a fhir:Patient .
-    ?x :covid ?code .
-	?code rdfs:subClassOf ?v
+    # occurrant superclass of timeframe
+    # https://www.findacode.com/snomed/7389001--time-frame.html
+    ?code rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000003>
+}
+LIMIT 100
+"""
+
+[[tabGroups]]
+
+name="Example Queries"
+
+[[tabGroups.tabs]]
+name="ado ontology query"
+query="""
+# NOTE: Use ado.owl for this query
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX fhir: <http://hl7.org/fhir/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX w5: <http://hl7.org/fhir/w5#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX SCTO: <https://bioportal.bioontology.org/ontologies/SCTO#>
+SELECT * WHERE {
+# A class of drugs producing both physiological and psychological effects through a variety of mechanisms involving the central nervous system.
+?code rdfs:subClassOf <http://purl.obolibrary.org/obo/CHEBI_35470>
 }
 LIMIT 100
 """
