@@ -70,3 +70,5 @@ services:
       ]
     ports:
       - "${MAPPED_FUSEKI_PORT}:3030"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
